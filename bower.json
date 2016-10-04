@@ -1,0 +1,26 @@
+{
+  "name": "todo-app-angular",
+  "authors": [
+    "iver56 <iver56@hotmail.com>"
+  ],
+  "description": "A simple TODO app",
+  "main": "index.html",
+  "keywords": [
+    "TODO"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "firebase": "^3.4.1",
+    "angularfire": "^2.0.2"
+  }
+}
