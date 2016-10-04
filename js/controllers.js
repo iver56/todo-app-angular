@@ -3,7 +3,7 @@
 
   angular.module('todoApp.controllers', [])
 
-    .controller('ListCtrl', function(localStorageService, $timeout) {
+    .controller('ListCtrl', function(localStorageService) {
       var vm = this;
 
       vm.init = function() {
