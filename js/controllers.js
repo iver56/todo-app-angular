@@ -13,7 +13,6 @@
         };
 
         vm.items = localStorageService.get('items');
-        console.log('items', vm.items);
         if (null === vm.items) {
           vm.items = [];
         }
