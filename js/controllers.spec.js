@@ -1,17 +1,19 @@
-describe('List', function() {
-  beforeEach(angular.mock.module('todoApp'));
-  beforeEach(angular.mock.module('todoApp.controllers'));
+describe('ListCtrl', function() {
+  beforeEach(module('todoApp', 'todoApp.controllers'));
 
-  var $controller;
+  var $controller, createController;
 
-  beforeEach(inject(function(_$controller_){
+  beforeEach(inject(function(_$controller_) {
     // The injector unwraps the underscores (_) from around the parameter names when matching
     $controller = _$controller_;
+    createController = function() {
+      var $scope = {};
+      return $controller('ListCtrl', {$scope: $scope});
+    }
   }));
 
   it('has a loading property', function() {
-    var $scope = {};
-    var controller = $controller('ListCtrl', { $scope: $scope });
-    expect($scope.loading).toBeDefined();
+    var vm = createController();
+    expect(vm.loading).toBeDefined();
   });
 });

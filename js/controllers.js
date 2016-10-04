@@ -3,38 +3,40 @@
 
   angular.module('todoApp.controllers', [])
 
-    .controller('ListCtrl', function($scope, $firebaseArray) {
-      $scope.loading = true;
+    .controller('ListCtrl', function($firebaseArray) {
+      var vm = this;
+
+      vm.loading = true;
       var ref = firebase.database().ref();
 
-      $scope.items = $firebaseArray(ref);
+      vm.items = $firebaseArray(ref);
 
-      $scope.items.$loaded().then(function() {
-        $scope.loading = false;
+      vm.items.$loaded().then(function() {
+        vm.loading = false;
       });
 
-      $scope.putItem = function() {
-        if (0 === $scope.newItem.content.length) {
+      vm.putItem = function() {
+        if (0 === vm.newItem.content.length) {
           return;
         }
-        $scope.items.$add($scope.newItem);
-        $scope.newItem.content = "";
+        vm.items.$add(vm.newItem);
+        vm.newItem.content = "";
       };
 
-      $scope.checkedChange = function(item) {
-        $scope.items.$save(item);
+      vm.checkedChange = function(item) {
+        vm.items.$save(item);
       };
 
-      $scope.newItem = {
+      vm.newItem = {
         content: '',
         checked: false
       };
 
-      $scope.clear = function() {
-        for (var i = 0; i < $scope.items.length; i++) {
-          var item = $scope.items[i];
+      vm.clear = function() {
+        for (var i = 0; i < vm.items.length; i++) {
+          var item = vm.items[i];
           if (item.checked) {
-            $scope.items.$remove(item);
+            vm.items.$remove(item);
           }
         }
       };

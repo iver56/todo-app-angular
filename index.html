@@ -14,22 +14,22 @@
 
 <body ng-app="todoApp">
 
-<div ng-controller="ListCtrl">
+<div ng-controller="ListCtrl as list">
   <header>
     <div class="buttons">
-      <button ng-click="clear()">Clear</button>
+      <button ng-click="list.clear()">Delete selected</button>
     </div>
     <h1 class="title">Handlelisten</h1>
   </header>
-  <form novalidate ng-submit="putItem()" class="item item-input">
-    <input type="text" placeholder="..." ng-model="newItem.content" maxlength="127" required>
+  <form novalidate ng-submit="list.putItem()" class="item item-input">
+    <input type="text" placeholder="..." ng-model="list.newItem.content" maxlength="127" required>
     <button type="submit">Add</button>
   </form>
   <div class="list">
-    <div class="loading" ng-if="loading">Loading...</div>
-    <div class="item" ng-repeat="item in items">
+    <div class="loading" ng-if="list.loading">Loading...</div>
+    <div class="item" ng-repeat="item in list.items">
       <label class="checkbox">
-        <input type="checkbox" ng-model="item.checked" ng-change="checkedChange(item)">
+        <input type="checkbox" ng-model="item.checked" ng-change="list.checkedChange(item)">
       </label>
       {{ item.content }}
     </div>
