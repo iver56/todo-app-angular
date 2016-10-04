@@ -1,0 +1,13 @@
+(function() {
+  'use strict';
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "insert apiKey string here",
+    authDomain: "insert authDomain string here",
+    databaseURL: "insert databaseURL string here",
+    storageBucket: "",
+    messagingSenderId: "insert messagingSenderId here"
+  };
+  firebase.initializeApp(config);
+})();
