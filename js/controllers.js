@@ -24,10 +24,6 @@
         vm.storeItems();
       };
 
-      vm.checkedChange = function(item) {
-        vm.storeItems();
-      };
-
       vm.removeSelected = function() {
         vm.items = vm.items.filter(function(item) {
           return !item.checked;

@@ -29,7 +29,7 @@
     <div class="loading" ng-if="list.loading">Loading...</div>
     <div class="item" ng-repeat="item in list.items">
       <label class="checkbox">
-        <input type="checkbox" ng-model="item.checked" ng-change="list.checkedChange(item)">
+        <input type="checkbox" ng-model="item.checked" ng-change="list.storeItems()">
       </label>
       {{ item.content }}
     </div>
