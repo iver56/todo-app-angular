@@ -1,0 +1,21 @@
+{
+  "name": "todo-app-angular",
+  "version": "0.0.1",
+  "description": "A simple TODO app",
+  "main": "index.html",
+  "scripts": {
+    "test": "karma start"
+  },
+  "keywords": [
+    "TODO"
+  ],
+  "author": "Iver Jordal",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.0.2"
+  }
+}
