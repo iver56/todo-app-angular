@@ -3,42 +3,49 @@
 
   angular.module('todoApp.controllers', [])
 
-    .controller('ListCtrl', function($firebaseArray) {
+    .controller('ListCtrl', function(localStorageService, $timeout) {
       var vm = this;
 
-      vm.loading = true;
-      var ref = firebase.database().ref();
+      vm.init = function() {
+        vm.newItem = {
+          content: '',
+          checked: false
+        };
 
-      vm.items = $firebaseArray(ref);
+        vm.items = localStorageService.get('items');
+        console.log('items', vm.items);
+        if (null === vm.items) {
+          vm.items = [];
+        }
+      };
 
-      vm.items.$loaded().then(function() {
-        vm.loading = false;
-      });
-
-      vm.putItem = function() {
+      vm.addItem = function() {
         if (0 === vm.newItem.content.length) {
           return;
         }
-        vm.items.$add(vm.newItem);
-        vm.newItem.content = "";
+        vm.items.push(angular.copy(vm.newItem));
+        vm.newItem.content = '';
+        vm.storeItems();
       };
 
       vm.checkedChange = function(item) {
-        vm.items.$save(item);
-      };
-
-      vm.newItem = {
-        content: '',
-        checked: false
+        vm.storeItems();
       };
 
       vm.clear = function() {
-        for (var i = 0; i < vm.items.length; i++) {
-          var item = vm.items[i];
-          if (item.checked) {
-            vm.items.$remove(item);
-          }
-        }
+        vm.items = vm.items.filter(function(item) {
+          return !item.checked;
+        });
+
+        vm.storeItems();
       };
+
+      vm.storeItems = function() {
+        $timeout(function() {
+          localStorageService.set('items', vm.items);
+        });
+      };
+
+      vm.init();
     });
 })();
