@@ -12,10 +12,7 @@
           checked: false
         };
 
-        vm.items = localStorageService.get('items');
-        if (null === vm.items) {
-          vm.items = [];
-        }
+        vm.items = localStorageService.get('items') || [];
       };
 
       vm.addItem = function() {
@@ -31,7 +28,7 @@
         vm.storeItems();
       };
 
-      vm.clear = function() {
+      vm.removeSelected = function() {
         vm.items = vm.items.filter(function(item) {
           return !item.checked;
         });
@@ -40,9 +37,7 @@
       };
 
       vm.storeItems = function() {
-        $timeout(function() {
-          localStorageService.set('items', vm.items);
-        });
+        localStorageService.set('items', vm.items);
       };
 
       vm.init();
