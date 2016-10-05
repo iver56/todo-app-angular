@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('todoApp', ['todoApp.controllers', 'LocalStorageModule'])
+  angular.module('todoApp', ['LocalStorageModule'])
     .config(function(localStorageServiceProvider) {
       localStorageServiceProvider
         .setPrefix('todoApp');

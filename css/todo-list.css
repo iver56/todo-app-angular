@@ -18,4 +18,5 @@
 
 .todo-list .list-body .list-item .checkbox {
   width: 100%;
+  display: block;
 }

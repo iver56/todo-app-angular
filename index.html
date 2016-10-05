@@ -17,34 +17,14 @@
 
 <body ng-app="todoApp">
 
-<div ng-controller="ListsCtrl as todoLists" class="lists-wrapper">
-  <todo-list
-      class="todo-list"
-      ng-repeat="list in todoLists.lists"
-      list="list"
-  >
-  </todo-list>
-
-  <form novalidate ng-submit="todoLists.addList()" class="todo-list todo-list-new">
-    <input
-        type="text"
-        placeholder="Add a list..."
-        ng-model="todoLists.newList.name"
-        maxlength="80"
-        required
-    >
-    <button type="submit">Add</button>
-  </form>
-</div>
-
+<board class="board"></board>
 
 <script src="bower_components/angular/angular.min.js"></script>
 <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
 
 <script src="js/app.js"></script>
+<script src="js/boardDirective.js"></script>
 <script src="js/todoListDirective.js"></script>
-<script src="js/controllers.js"></script>
-
 
 </body>
 </html>
