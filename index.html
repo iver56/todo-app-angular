@@ -11,23 +11,25 @@
 
   <title>TODO</title>
 
+  <link href="css/todo-lists.css" rel="stylesheet">
   <link href="css/todo-list.css" rel="stylesheet">
 </head>
 
 <body ng-app="todoApp">
 
-<div ng-controller="ListsCtrl as todoLists">
+<div ng-controller="ListsCtrl as todoLists" class="lists-wrapper">
   <todo-list
+      class="todo-list"
       ng-repeat="list in todoLists.lists"
       list="list"
   >
   </todo-list>
 
-  <form novalidate ng-submit="todoLists.addList()">
+  <form novalidate ng-submit="todoLists.addList()" class="todo-list todo-list-new">
     <input
         type="text"
         placeholder="Add a list..."
-        ng-model="todoList.newList.name"
+        ng-model="todoLists.newList.name"
         maxlength="80"
         required
     >

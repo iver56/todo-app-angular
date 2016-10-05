@@ -1,4 +1,4 @@
-todo-list {
+.todo-list {
   margin: 5px;
   padding: 5px;
   border-radius: 3px;
@@ -9,13 +9,13 @@ todo-list {
   width: 300px;
 }
 
-todo-list .list-body .list-item {
+.todo-list .list-body .list-item {
   margin: 5px 0;
   background-color: #fff;
   border-radius: 3px;
   color: #333;
 }
 
-todo-list .list-body .list-item .checkbox {
+.todo-list .list-body .list-item .checkbox {
   width: 100%;
 }
