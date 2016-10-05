@@ -26,7 +26,6 @@
         };
 
         vm.storeLists = function() {
-          console.log('updated')
           localStorageService.set('lists', vm.lists);
         };
 
