@@ -3,37 +3,29 @@
 
   angular.module('todoApp.controllers', [])
 
-    .controller('ListCtrl', function(localStorageService) {
+    .controller('ListsCtrl', function($scope, localStorageService) {
       var vm = this;
 
       vm.init = function() {
-        vm.newItem = {
-          content: '',
-          checked: false
+        vm.lists = localStorageService.get('lists') || [];
+
+        vm.newList = {
+          name: '',
+          items: []
         };
 
-        vm.items = localStorageService.get('items') || [];
+        $scope.$on('dataUpdated', vm.storeLists);
       };
 
-      vm.addItem = function() {
-        if (0 === vm.newItem.content.length) {
-          return;
-        }
-        vm.items.push(angular.copy(vm.newItem));
-        vm.newItem.content = '';
-        vm.storeItems();
+      vm.addList = function() {
+        vm.lists.push(angular.copy(vm.newList));
+        vm.newList.name = '';
+        $scope.$emit('dataUpdated');
       };
 
-      vm.removeSelected = function() {
-        vm.items = vm.items.filter(function(item) {
-          return !item.checked;
-        });
-
-        vm.storeItems();
-      };
-
-      vm.storeItems = function() {
-        localStorageService.set('items', vm.items);
+      vm.storeLists = function() {
+        console.log('updated')
+        localStorageService.set('lists', vm.lists);
       };
 
       vm.init();

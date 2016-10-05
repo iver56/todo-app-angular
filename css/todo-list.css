@@ -1,0 +1,21 @@
+todo-list {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 3px;
+  background-color: #eee;
+  display: inline-block;
+  white-space: nowrap; /*todo: check if nexessary */
+  vertical-align: top;
+  width: 300px;
+}
+
+todo-list .list-body .list-item {
+  margin: 5px 0;
+  background-color: #fff;
+  border-radius: 3px;
+  color: #333;
+}
+
+todo-list .list-body .list-item .checkbox {
+  width: 100%;
+}

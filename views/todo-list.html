@@ -1,0 +1,19 @@
+<div class="list-header">
+  <div class="buttons">
+    <button ng-click="todoList.removeSelected()">Remove selected</button>
+  </div>
+  <h1 class="title">{{ todoList.list.name }}</h1>
+</div>
+
+<div class="list-body">
+  <div ng-repeat="item in todoList.list.items" class="list-item">
+    <label class="checkbox">
+      <input type="checkbox" ng-model="item.checked" ng-change="todoList.propagateChange()">
+      {{ item.content }}
+    </label>
+  </div>
+  <form novalidate ng-submit="todoList.addItem()">
+    <input type="text" placeholder="..." ng-model="todoList.newItem.content" required>
+    <button type="submit">Add</button>
+  </form>
+</div>
