@@ -16,13 +16,19 @@
         };
 
         vm.addItem = function() {
-          if (0 === vm.newItem.content.length) {
-            return;  // TODO: let HTML5 form validation take care of this..
-          }
           vm.list.items.push(angular.copy(vm.newItem));
           vm.newItem.content = '';
 
           vm.propagateChange();
+        };
+
+        vm.hasCheckedItems = function() {
+          for (var i = 0; i < vm.list.items.length; i++) {
+            if (vm.list.items[i].checked) {
+              return true;
+            }
+          }
+          return false;
         };
 
         vm.removeSelected = function() {

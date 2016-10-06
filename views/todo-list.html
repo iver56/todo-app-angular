@@ -1,8 +1,11 @@
 <div class="list-header">
-  <div class="buttons">
-    <button ng-click="todoList.removeSelected()">Remove selected</button>
-  </div>
-  <h1 class="title">{{ todoList.list.name }}</h1>
+  <button
+      class="button-left ion-trash-a"
+      ng-disabled="!todoList.hasCheckedItems()"
+      ng-click="todoList.removeSelected()"
+      title="Remove selected items in this list"
+  ></button>
+  <h2 class="title">{{ todoList.list.name }}</h2>
 </div>
 
 <div class="list-body">
@@ -12,8 +15,14 @@
       {{ item.content }}
     </label>
   </div>
-  <form novalidate ng-submit="todoList.addItem()">
-    <input type="text" placeholder="..." ng-model="todoList.newItem.content" required>
+  <form class="new-item-form" ng-submit="todoList.addItem()">
+    <input
+        type="text"
+        class="new-item-content"
+        placeholder="Add a new item..."
+        ng-model="todoList.newItem.content"
+        required
+    >
     <button type="submit">Add</button>
   </form>
 </div>
