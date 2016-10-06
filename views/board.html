@@ -3,15 +3,15 @@
     ng-repeat="list in board.lists"
     list="list"
 >
-</todo-list>
-
-<form novalidate ng-submit="board.addList()" class="todo-list todo-list-new">
-  <input
-      type="text"
-      placeholder="Add a list..."
-      ng-model="board.newList.name"
-      maxlength="80"
-      required
-  >
-  <button type="submit">Add</button>
-</form>
+</todo-list><div class="todo-list">
+  <form ng-submit="board.addList()" class="new-item-form">
+    <input
+        type="text"
+        placeholder="Add a list..."
+        ng-model="board.newList.name"
+        maxlength="80"
+        required
+    >
+    <button type="submit">Add</button>
+  </form>
+</div>

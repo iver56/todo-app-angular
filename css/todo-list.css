@@ -6,7 +6,7 @@
   display: inline-block;
   white-space: nowrap;
   vertical-align: top;
-  width: 300px;
+  width: 290px;
   color: #333;
 }
 
@@ -43,7 +43,7 @@
   border-radius: 3px;
   border-bottom: 1px solid #ccc;
   white-space: normal;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 
 .todo-list .list-body .list-item:hover {
@@ -53,20 +53,25 @@
 .todo-list .list-body .list-item .checkbox {
   width: 100%;
   display: block;
+  vertical-align: middle;
 }
 
-.todo-list .list-body .new-item-form {
+.todo-list .list-body .list-item .checkbox input[type=checkbox] {
+  margin-right: 7px;
+}
+
+.new-item-form {
   display: flex;
   flex-direction: row;
 }
 
-.todo-list .list-body .new-item-form input[type=text] {
+.new-item-form input[type=text] {
   display: block;
   width: 85%;
   padding: 5px;
 }
 
-.todo-list .list-body .new-item-form button {
+.new-item-form button {
   display: block;
   padding: 5px;
   width: 15%;
